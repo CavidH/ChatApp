@@ -14,11 +14,12 @@ enterGroupForm.addEventListener("submit", function (ev) {
     }
     localStorage.setItem("user", JSON.stringify(user));
     showArea();
+    document.getElementById("joinArea").classList.add("d-none");
 })
 
 leaveGroupBtn.addEventListener("click", function (ev) {
     localStorage.removeItem("user");
-    document.getElementById("messageArea").classList.remove("d-none");
+    document.getElementById("messageArea").classList.add("d-none");
     document.getElementById("joinArea").classList.remove("d-none");
 })
 
