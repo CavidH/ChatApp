@@ -23,7 +23,7 @@ leaveGroupBtn.addEventListener("click", function (ev) {
     document.getElementById("joinArea").classList.remove("d-none");
 })
 
-SendMessageForm.addEventListener("submit" , function (ev) {
+SendMessageForm.addEventListener("submit", function (ev) {
     ev.preventDefault();
     let message = document.querySelector("textarea").value;
     let user = JSON.parse(localStorage.getItem("user"));
@@ -32,7 +32,7 @@ SendMessageForm.addEventListener("submit" , function (ev) {
                     <p>${message}</p>
                 </li>`;
     document.getElementById("messages").innerHTML += li;
-    document.querySelector("textarea").value = " ";
+    document.querySelector("textarea").value = "";
 
 })
 
