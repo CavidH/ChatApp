@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using ChatApp.Services.Utilities;
 using Microsoft.AspNetCore.SignalR;
 
 namespace ChatApp.Hubs
@@ -18,6 +20,18 @@ namespace ChatApp.Hubs
         public async Task RemoveGroupAsync(string group)
         {
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, group);
+        }
+
+        public override Task OnConnectedAsync()
+        {
+            ConnectedUser.Ids.Add(Context.ConnectionId);    
+            return base.OnConnectedAsync();
+        }
+
+        public override Task OnDisconnectedAsync(Exception? exception)
+        {
+            ConnectedUser.Ids.Remove(Context.ConnectionId);
+            return base.OnDisconnectedAsync(exception);
         }
     }
 }

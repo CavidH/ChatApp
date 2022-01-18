@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ChatApp.Models;
+using ChatApp.Services.Utilities;
 
 namespace ChatApp.Controllers
 {
@@ -16,13 +17,11 @@ namespace ChatApp.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.UserCount = ConnectedUser.Ids.Count;
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+       
 
          
     }
