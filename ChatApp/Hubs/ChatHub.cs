@@ -13,6 +13,10 @@ namespace ChatApp.Hubs
         { 
             await Groups.AddToGroupAsync(Context.ConnectionId, group);
         }
+        public async Task RemoveGroupAsync(string group)
+        { 
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, group);
+        }
 
     }
 }
