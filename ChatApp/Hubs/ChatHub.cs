@@ -9,6 +9,10 @@ namespace ChatApp.Hubs
         {
             await Clients.All.SendAsync("ReceiveMessage", user, message);
         }
-        
+        public async Task AddGroupAsync(string group)
+        { 
+            await Groups.AddToGroupAsync(Context.ConnectionId, group);
+        }
+
     }
 }
